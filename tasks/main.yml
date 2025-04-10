@@ -1,0 +1,29 @@
+---
+# Atualiza o cache do APT e instala os pacotes necessários para o agente Zabbix e suporte a SNMP
+- name: Instalar pacotes do Zabbix Agent e SNMP
+  ansible.builtin.apt:
+    name: "{{ zabbix_agent_snmp_packages }}"
+    state: present
+    update_cache: true
+  become: true
+  notify: Restart Zabbix Agent
+
+# Essa task aplica a configuração padrão do SNMP, garantindo que o parâmetro 'mibs :' esteja comentado,
+- name: Aplicar configuração padrão do SNMP (/etc/snmp/snmp.conf)
+  ansible.builtin.template:
+    src: snmp.conf.j2
+    dest: /etc/snmp/snmp.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+# Habilita e inicia o serviço do agente Zabbix para garantir que ele esteja ativo no boot
+- name: Habilitar e iniciar serviços
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop:
+    - zabbix-agent2
+  become: true

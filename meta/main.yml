@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: zabbix_agent_snmp                 # Nome da role para o Ansible Galaxy
+  author: josezipf                             # Autor do projeto
+  description: Instala e configura o Zabbix Agent2 versão 7 e SNMP e mibs padões no Ubuntu 24.04
+  company: Nototi                              # Nome da empresa ou marca
+  license: MIT                                 # Tipo de licença
+  min_ansible_version: "2.10"                  # Versão mínima do Ansible recomendada
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - "noble"
+
+  galaxy_tags:
+    - zabbix
+    - agent
+    - snmp
+    - ubuntu
+    - monitoring
+
+dependencies: []

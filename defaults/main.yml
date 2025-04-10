@@ -1,0 +1,6 @@
+---
+# Lista de pacotes que serão instalados para suporte ao Zabbix Agent e SNMP
+zabbix_agent_snmp_packages:
+  - zabbix-agent2               # Agente Zabbix responsável pela coleta de métricas locais
+  - snmp                        # Utilitário SNMP para comunicação com dispositivos SNMP
+  - snmp-mibs-downloader        # Ferramenta para baixar MIBs SNMP padrão

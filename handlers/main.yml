@@ -1,0 +1,7 @@
+---
+# Reinicia o serviço do agente Zabbix quando alterações forem detectadas
+- name: Restart Zabbix Agent
+  ansible.builtin.service:
+    name: zabbix-agent2
+    state: restarted
+  become: true

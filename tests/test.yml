@@ -1,0 +1,11 @@
+---
+# Playbook de teste da role zabbix_agent2_v7_snmp
+# Este playbook aplica a role em todos os hosts definidos no inventário para validar sua execução
+
+- name: Teste da role zabbix_agent2_v7_snmp
+  hosts: all
+  remote_user: root            # Usuário remoto com permissões para executar as tasks (pode ser ajustado conforme o ambiente)
+  become: true                 # Garante que as tasks que requerem privilégios de root sejam executadas corretamente
+
+  roles:
+    - zabbix_agent2_v7_snmp    # Nome da role a ser testada
